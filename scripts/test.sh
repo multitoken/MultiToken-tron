@@ -8,19 +8,13 @@ trap cleanup EXIT
 
 cleanup() {
   # Kill the ganache instance that we started (if we started one and if it's still running).
-  if [ -n "$ganache_pid" ] && ps -p $ganache_pid > /dev/null; then
-    kill -9 $ganache_pid
+  if [ -n "$ganache_pid" ]; then
+    docker stop tron
   fi
 }
 
-if [ "$SOLIDITY_COVERAGE" = true ]; then
-  ganache_port=8555
-else
-  ganache_port=9545
-fi
-
 ganache_running() {
-  nc -z localhost "$ganache_port"
+  nc -z localhost 9090
 }
 
 start_ganache() {
