@@ -36,7 +36,7 @@
     "web3-utils": "^1.0.0-beta.36"
   },
   "scripts": {
-    "test": "tronbox compile",
+    "test": "scripts/test.sh",
     "coverage": "",
     "lint:js": "eslint .",
     "lint:js:fix": "eslint . --fix",
