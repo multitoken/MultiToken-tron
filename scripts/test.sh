@@ -41,12 +41,7 @@ start_ganache() {
 
   ganache_pid=$!
 
-  echo "Waiting trontools/quickstart docker to launch on 9090..."
-  while ! nc -G 1 -z localhost 9090; do
-  #while ! curl --output /dev/null --silent --head --fail http://localhost:9090; do
-    sleep 1 && echo -n .;
-  done;
-  echo "trontools/quickstart docker launched"
+  sleep 30
 }
 
 if ganache_running; then
